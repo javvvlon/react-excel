@@ -3,7 +3,6 @@ import { GRID_DEFAULT_TEMPLATE } from "./Grid.config"
 import { ICell, IGrid } from "./Grid.contracts"
 import { CellConfig, CellsConfig } from "./partials/cell"
 import { initialCellConfig } from "./partials/cell/Cell.config"
-import { evaluateFormula, parseFormula } from "./Grid.helpers";
 
 export interface UseGridLayoutProvides {
     cols: number
@@ -40,32 +39,10 @@ export const useGridLayout = (): UseGridLayoutProvides => {
     const updateCell = (row: number, col: number, value: string) => {
         setGrid(prev =>
             prev.map((r, ri) =>
-                ri === row ? r.map((c, ci) => {
-                    if (ci === col) {
-                        return value; // Update the cell value
-                    }
-                    return c;
-                }) : r
+                ri === row ? r.map((c, ci) => (ci === col ? value : c)) : r
             )
-        );
-
-        recalculateFormulas();
-    };
-
-    const recalculateFormulas = () => {
-        const updatedGrid = grid.map((row) =>
-            row.map((cell) => {
-                if (cell.startsWith('=')) {
-                    const formula = parseFormula(cell, grid);
-                    return evaluateFormula(formula);
-                }
-                return cell;
-            })
-        );
-
-        setGrid(updatedGrid);
-    };
-
+        )
+    }
 
     const retrieveCellConfig = useCallback(() => {
         const currentCell = cell.join("")

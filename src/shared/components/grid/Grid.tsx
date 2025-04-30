@@ -6,8 +6,9 @@ import { Cell } from './partials/cell'
 
 import { useGridLayout } from './Grid.hooks'
 import './_grid.scss'
+import { GridProps } from "./Grid.contracts";
 
-const Grid: React.FC = () => {
+const Grid: React.FC<GridProps> = () => {
     const {
         cols,
         rows,

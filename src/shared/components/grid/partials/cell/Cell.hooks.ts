@@ -33,12 +33,13 @@ export const useCell = ({ value, onchange, config, grid }: CellProps) => {
     const handleInput = () => {
         const text = elRef.current?.textContent || '';
 
-        if (text.startsWith('=')) {
-            const formulaResult = evaluateFormula(parseFormula(text, grid))
-            onchange(formulaResult);
-        } else {
-            onchange(text);
-        }
+        // if (text.startsWith('=')) {
+        //     const formulaResult = evaluateFormula(parseFormula(text, grid))
+        //     onchange(formulaResult);
+        // } else {
+        //     onchange(text);
+        // }
+        onchange(text)
     };
 
 

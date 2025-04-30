@@ -14,7 +14,7 @@ export enum GridCellFormat {
 }
 
 export interface GridProps {
-    payload: number[]
+    payload?: Record<string, string>
 }
 
 export type IGrid = string[][]

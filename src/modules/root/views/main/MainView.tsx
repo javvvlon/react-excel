@@ -7,7 +7,7 @@ import './_main-view.scss';
 function MainView() {
     return (
         <div className={'main-view'}>
-            <Grid payload={[]} />
+            <Grid />
         </div>
     )
 }
