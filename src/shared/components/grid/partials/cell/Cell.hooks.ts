@@ -1,7 +1,6 @@
 import React, { RefObject, useEffect, useRef } from "react"
 import { useSanitize } from "../../../../utils"
 import { CellConfig, CellProps } from "./Cell.contracts"
-import { evaluateFormula, parseFormula } from "../../Grid.helpers";
 
 /**
  * @author Javlon Khalimjonov
@@ -17,7 +16,7 @@ export interface UseCellProvides {
 /**
  * @author Javlon Khalimjonov
  */
-export const useCell = ({ value, onchange, config, grid }: CellProps) => {
+export const useCell = ({ value, onchange, config }: CellProps) => {
     const elRef = useRef<HTMLDivElement>(null)
     const { sanitize } = useSanitize()
 
