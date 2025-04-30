@@ -1,0 +1,14 @@
+.cell {
+    min-width: 50px;
+    border: 1px solid rgb(160 160 160);
+
+    &__field {
+        padding: 4px;
+        font-size: 11px;
+        outline: none;
+
+        &:focus {
+            outline: 2px solid #1b63b7;
+        }
+    }
+}
